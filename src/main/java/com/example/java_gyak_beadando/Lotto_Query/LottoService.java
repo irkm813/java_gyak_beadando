@@ -21,7 +21,7 @@ public class LottoService {
         return huzasRepository.findDistinctYears();
     }
 
-    public List<HuzasEntity> getWeeksForYear(int year) {
+    public List<LottoEntity> getWeeksForYear(int year) {
         // Adott évhez tartozó hetek lekérdezése
         return huzasRepository.findByEv(year);
     }

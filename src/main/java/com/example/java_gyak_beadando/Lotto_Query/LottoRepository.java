@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LottoRepository extends JpaRepository<HuzasEntity, Long> {
+public interface LottoRepository extends JpaRepository<LottoEntity, Long> {
 
-    @Query("SELECT DISTINCT h.ev FROM HuzasEntity h")
+    @Query("SELECT DISTINCT h.ev FROM LottoEntity h")
     List<Integer> findDistinctYears();
 
-    List<HuzasEntity> findByEv(int ev);
+    List<LottoEntity> findByEv(int ev);
 
-    List<HuzasEntity> findByEvAndHet(int ev, int het);
+    List<LottoEntity> findByEvAndHet(int ev, int het);
 
     @Query(value = "SELECT h.ev, h.het, GROUP_CONCAT(ho.szam ORDER BY ho.szam ASC) AS szamok, " +
             "n.talalat, n.darab, n.ertek " +

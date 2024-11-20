@@ -26,7 +26,7 @@ public class LottoController {
     }
 
     @GetMapping("/weeks")
-    public List<HuzasEntity> getWeeksForYear(@RequestParam int year) {
+    public List<LottoEntity> getWeeksForYear(@RequestParam int year) {
         // Adott évhez tartozó hetek lekérdezése
         return huzasService.getWeeksForYear(year);
     }
