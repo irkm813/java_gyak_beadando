@@ -1,0 +1,24 @@
+form#lotto-form select.dropdown-select {
+    width: auto;
+    box-sizing: border-box;
+}
+
+form#lotto-form select.dropdown-select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+#lotto-form .button-group {
+    width: auto;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#lotto-form #query-button {
+    display: block;
+    width: auto;
+}
+
+#results {
+    margin-top: 20px;
+}

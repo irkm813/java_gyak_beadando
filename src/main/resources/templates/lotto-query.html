@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout::layout(~{::content}, ~{::meta})">
+<head th:fragment="meta">
+    <link rel="stylesheet" href="/assets/css/lotto-query-style.css" />
+</head>
+<body class="is-preload no-sidebar" th:fragment="content">
+<!-- Main -->
+<div id="main-wrapper">
+    <div class="container">
+        <div id="content">
+            <!-- Content -->
+            <article>
+                <h2>Lottó Adatok Lekérdezése</h2>
+                <p>Válaszd ki, hogy melyik év melyik hetéből szeretnéd a lottó húzás adatait lekérni!</p>
+                <!-- Lenyíló dobozok és gomb -->
+                <form id="lotto-form">
+                    <div class="form-group">
+                        <label for="year">Év:</label>
+                        <select id="year" name="year" class="dropdown-select" required>
+                            <option value="" disabled selected>Válassz évet</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="week">Hét:</label>
+                        <select id="week" name="week" class="dropdown-select" required>
+                            <option value="" disabled selected>Válassz hetet</option>
+                        </select>
+                    </div>
+                    <div class="form-group button-group">
+                        <button type="button" id="query-button">Lekérdezés</button>
+                    </div>
+                </form>
+                <!-- Eredmények -->
+                <div id="results">
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/lotto_query.js"></script>
+</body>
+</html>

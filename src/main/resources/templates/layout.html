@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, meta)">
 
 <head>
@@ -7,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <th:block th:replace="${meta}"></th:block>
 </head>
 
 <body class="is-preload homepage">
@@ -46,6 +46,7 @@
                     <li><a th:href="@{/left-sidebar}"> Left Sidebar</a></li>
                     <li><a th:href="@{/right-sidebar}">Right Sidebar</a></li>
                     <li><a th:href="@{/no-sidebar}">No Sidebar</a></li>
+                    <li><a th:href="@{/lotto-query}">Lekérdezés</a></li>
                 </ul>
             </nav>
 
@@ -62,7 +63,6 @@
         <footer id="footer" class="container">
             <div class="row">
                 <div class="col-3 col-6-medium col-12-small">
-
                     <!-- Links -->
                     <section class="widget links">
                         <h3>Random Stuff</h3>
@@ -74,40 +74,8 @@
                             <li><a href="#">Nullam scelerisque blandit leo</a></li>
                         </ul>
                     </section>
-
                 </div>
                 <div class="col-3 col-6-medium col-12-small">
-
-                    <!-- Links -->
-                    <section class="widget links">
-                        <h3>Random Stuff</h3>
-                        <ul class="style2">
-                            <li><a href="#">Etiam feugiat condimentum</a></li>
-                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
-                            <li><a href="#">Felis varius pellentesque potenti</a></li>
-                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
-                        </ul>
-                    </section>
-
-                </div>
-                <div class="col-3 col-6-medium col-12-small">
-
-                    <!-- Links -->
-                    <section class="widget links">
-                        <h3>Random Stuff</h3>
-                        <ul class="style2">
-                            <li><a href="#">Etiam feugiat condimentum</a></li>
-                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
-                            <li><a href="#">Felis varius pellentesque potenti</a></li>
-                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
-                        </ul>
-                    </section>
-
-                </div>
-                <div class="col-3 col-6-medium col-12-small">
-
                     <!-- Contact -->
                     <section class="widget contact last">
                         <h3>Contact Us</h3>
@@ -122,7 +90,6 @@
                             Nashville, TN 00000<br />
                             (800) 555-0000</p>
                     </section>
-
                 </div>
             </div>
             <div class="row">
@@ -140,13 +107,11 @@
 </div>
 
 <!-- Scripts -->
-
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/jquery.dropotron.min.js"></script>
 <script src="/assets/js/browser.min.js"></script>
 <script src="/assets/js/breakpoints.min.js"></script>
 <script src="/assets/js/util.js"></script>
 <script src="/assets/js/main.js"></script>
-
 </body>
 </html>
