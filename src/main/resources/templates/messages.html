@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout::layout(~{::content}, ~{::meta})">
+<head th:fragment="meta">
+</head>
+<body class="is-preload no-sidebar" th:fragment="content">
+<!-- Main -->
+<div id="main-wrapper">
+    <div class="container">
+        <div id="content">
+            <!-- Üzenetek megtekintése -->
+            <article>
+                <h2>Elküldött Üzenetek</h2>
+
+                <!-- Üzenetek táblázat -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Név</th>
+                        <th>Üzenet</th>
+                        <th>Időpont</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Az üzenetek listája dinamikusan kerül betöltésre -->
+                    <tr th:each="message : ${messages}">
+                        <td th:text="${message.userName}"></td>
+                        <td th:text="${message.message}"></td>
+                        <td th:text="${message.formattedDate}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </div>
+</div>
+</body>
+</html>

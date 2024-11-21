@@ -1,0 +1,18 @@
+#contact-form .button-group {
+    width: auto;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#contact-form #submit-button {
+    display: block;
+    width: auto;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    border: 2px solid #ccc; /* 2px szürke keret */
+    border-radius: 5px; /* Lekerekített sarkok */
+    width: 100%; /* Teljes szélesség */
+}
