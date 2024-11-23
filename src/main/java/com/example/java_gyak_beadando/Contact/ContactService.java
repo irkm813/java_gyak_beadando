@@ -3,7 +3,6 @@ package com.example.java_gyak_beadando.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
-import java.security.Principal;
 
 @Service
 public class ContactService {
@@ -32,11 +31,5 @@ public class ContactService {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public Integer getUserIdFromPrincipal(Principal principal) {
-        // Jelenleg nem implementált, de a login rendszer integrációja után ez megvalósítható
-        // Példa: lekérdezed az adatbázisból a principal.getName() alapján a userId-t
-        return null; // Alapértelmezett viselkedés
     }
 }

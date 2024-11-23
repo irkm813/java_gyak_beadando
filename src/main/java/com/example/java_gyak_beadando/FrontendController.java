@@ -28,24 +28,6 @@ public class FrontendController {
         return "index"; // Az index.html-t tölti be a templates mappából
     }
 
-    @GetMapping("/left-sidebar")
-    public String leftSidebar(Model model) {
-        model.addAttribute("title", "left");
-        return "left-sidebar"; // Az left-sidebar.html-t tölti be a templates mappából
-    }
-
-    @GetMapping("/right-sidebar")
-    public String rightSidebar(Model model) {
-        model.addAttribute("title", "right");
-        return "right-sidebar"; // Az right-sidebar.html-t tölti be a templates mappából
-    }
-
-    @GetMapping("/no-sidebar")
-    public String noSidebar(Model model) {
-        model.addAttribute("title", "nope");
-        return "no-sidebar"; // Az no-sidebar.html-t tölti be a templates mappából
-    }
-
     @GetMapping("/lotto-query")
     public String lotto(Model model) {
         model.addAttribute("title", "Lekérdezés");
@@ -61,6 +43,16 @@ public class FrontendController {
         return "contact";
     }
 
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String register(Model model) {
+        return "register";
+    }
+
     @GetMapping("/messages")
     public String viewMessages(Model model) {
         model.addAttribute("title", "Üzenetek");
@@ -68,5 +60,7 @@ public class FrontendController {
         model.addAttribute("messages", messages);
         return "messages";
     }
+
+
 
 }

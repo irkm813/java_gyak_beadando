@@ -1,6 +1,8 @@
 package com.example.java_gyak_beadando.Contact;
 
+import com.example.java_gyak_beadando.login.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +15,16 @@ public class ContactController {
     private final ContactService contactService;
 
     @Autowired
+    private ApplicationContext applicationContext;
+
+    @Autowired
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
     }
 
     @PostMapping("/contact/submit")
     public String submitContactForm(
+            @RequestParam(value = "isRegistered") Boolean isRegistered,
             @RequestParam(value = "email", required = false) String email,
             @RequestParam("message") String message,
             Model model,
@@ -40,8 +46,9 @@ public class ContactController {
 
         // User ID meghatározása
         Integer userId = null; // Vendég alapértelmezés
-        if (principal != null) {
-            userId = contactService.getUserIdFromPrincipal(principal);
+        if (isRegistered) {
+            UserService userService = applicationContext.getBean(UserService.class);
+            userId = userService.getUserIdByEmail(email);
         }
 
         // Adatbázis mentés

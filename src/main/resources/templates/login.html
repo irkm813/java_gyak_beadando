@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout::layout(~{::content}, ~{::meta})">
+<head th:fragment="meta">
+    <link rel="stylesheet" href="/assets/css/lotto-query-style.css" />
+</head>
+<body class="is-preload no-sidebar" th:fragment="content">
+<!-- Main -->
+<div id="main-wrapper">
+    <div class="container">
+        <div id="content">
+            <!-- Content -->
+            <article>
+                <form th:action="@{/login}" method="post">
+                    <div>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required />
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required />
+                    </div>
+                    <div>
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
+            </article>
+        </div>
+    </div>
+</div>
+<script src="/assets/js/lotto_query.js"></script>
+</body>
+</html>

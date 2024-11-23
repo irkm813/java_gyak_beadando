@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, meta)">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, meta)"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <title th:text="${title}">Alapértelmezett cím</title>
@@ -26,27 +27,12 @@
             <nav id="nav">
                 <ul>
                     <li class="current"><a th:href="@{/}">Welcome</a></li>
-                    <li>
-                        <a href="#">Dropdown</a>
-                        <ul>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Magna phasellus</a></li>
-                            <li>
-                                <a href="#">Phasellus consequat</a>
-                                <ul>
-                                    <li><a href="#">Lorem ipsum dolor</a></li>
-                                    <li><a href="#">Phasellus consequat</a></li>
-                                    <li><a href="#">Magna phasellus</a></li>
-                                    <li><a href="#">Etiam dolore nisl</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Veroeros feugiat</a></li>
-                        </ul>
-                    </li>
-                    <li><a th:href="@{/left-sidebar}"> Left Sidebar</a></li>
                     <li><a th:href="@{/contact}">Kapcsolat</a></li>
                     <li><a th:href="@{/messages}">Üzenetek</a></li>
                     <li><a th:href="@{/lotto-query}">Lekérdezés</a></li>
+                    <li sec:authorize="isAnonymous()" ><a th:href="@{/login}">Bejelentkezés</a></li>
+                    <li sec:authorize="isAuthenticated()"> <p>Üdv,<span sec:authentication="principal.username">User</span></p> </li>
+                    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Kijelentkezés</a></li>
                 </ul>
             </nav>
 
