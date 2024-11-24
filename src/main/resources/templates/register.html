@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout::layout(~{::content}, ~{::meta})">
+<head th:fragment="meta">
+<head>
+  <title>Register</title>
+</head>
+<body th:fragment="content">
+  <div id="main-wrapper">
+    <div class="container">
+      <div id="content">
+        <!-- Content -->
+        <article>
+          <h1>Regisztráció</h1>
+          <form th:action="@{/register}" method="post" th:object="${user}">
+            <div>
+              <label for="email">Felhasználónév:</label>
+              <input type="text" id="email" name="email" th:field="*{email}" required>
+            </div>
+            <div>
+              <label for="username">Email cím:</label>
+              <input type="text" id="username" name="username" th:field="*{username}" required>
+            </div>
+            <div>
+              <label for="password">Jelszó:</label>
+              <input type="password" id="password" name="password" th:field="*{password}" required>
+            </div>
+            <div>
+              <label for="confirmPassword">Jelszó újra:</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}" required>
+            </div>
+            <div>
+              <button type="submit">Register</button>
+            </div>
+          </form>
+          <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

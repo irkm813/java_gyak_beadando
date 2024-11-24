@@ -26,13 +26,9 @@
         <form id="contact-form" method="post" th:action="@{/contact/submit}">
           <div sec:authorize="isAnonymous()"  class="form-group">
             <label for="email">Email cím:</label>
-            <input type="email" id="email" name="email" class="form-control" maxlength="255" required />
+            <input type="email" id="email" name="email" class="form-control" maxlength="255"  required />
             <input type="hidden" id="isRegistered" name="isRegistered" value=false />
           </div>
-
-          <!-- Rejtett email mező, hogy a regisztrált felhasználók email címét is továbbküldje a kód -->
-          <input type="hidden" id="isRegistered" name="isRegistered" value=true sec:authorize="isAuthenticated()" />
-          <input type="hidden" id="email" name="email" th:value="${#authentication.name}" sec:authorize="isAuthenticated()" />
 
           <div class="form-group">
             <label for="message">Üzenet:</label>

@@ -1,5 +1,7 @@
 package com.example.java_gyak_beadando.Contact;
 
+import com.example.java_gyak_beadando.login.User;
+import com.example.java_gyak_beadando.login.UserRepository;
 import com.example.java_gyak_beadando.login.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -8,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class ContactController {
@@ -22,9 +25,9 @@ public class ContactController {
         this.contactService = contactService;
     }
 
+    @Autowired private UserRepository userRepo;
     @PostMapping("/contact/submit")
     public String submitContactForm(
-            @RequestParam(value = "isRegistered") Boolean isRegistered,
             @RequestParam(value = "email", required = false) String email,
             @RequestParam("message") String message,
             Model model,
@@ -44,11 +47,15 @@ public class ContactController {
             return "contact";
         }
 
-        // User ID meghatározása
+        // Usernév meghatározása
         Integer userId = null; // Vendég alapértelmezés
-        if (isRegistered) {
+        Optional<User> user = null;
+
+        if (principal != null) {
             UserService userService = applicationContext.getBean(UserService.class);
-            userId = userService.getUserIdByEmail(email);
+            email = principal.getName();
+            user = userRepo.findByEmail(email);
+            userId = user.get().getId();
         }
 
         // Adatbázis mentés

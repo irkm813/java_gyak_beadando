@@ -3,10 +3,14 @@ package com.example.java_gyak_beadando;
 import com.example.java_gyak_beadando.Lotto_Query.LottoService;
 import com.example.java_gyak_beadando.Messages.MessageDto;
 import com.example.java_gyak_beadando.Messages.MessageService;
+import com.example.java_gyak_beadando.login.User;
+import com.example.java_gyak_beadando.login.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -15,11 +19,13 @@ public class FrontendController {
 
     private final LottoService huzasService;
     private final MessageService messageService;
+    private final UserService userService;
 
     @Autowired
-    public FrontendController(LottoService huzasService, MessageService messageService) {
+    public FrontendController(LottoService huzasService, MessageService messageService, UserService userService) {
         this.messageService = messageService;
         this.huzasService = huzasService;
+        this.userService = userService;
     }
 
     @GetMapping("/")
@@ -49,8 +55,20 @@ public class FrontendController {
     }
 
     @GetMapping("/register")
-    public String register(Model model) {
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
         return "register";
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute User user, Model model) {
+        try {
+            userService.registerUser(user.getUsername(), user.getEmail(),user.getPassword(), user.getConfirmPassword());
+            return "redirect:/login";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "register";
+        }
     }
 
     @GetMapping("/messages")

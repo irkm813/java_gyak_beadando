@@ -1938,8 +1938,6 @@ input, select, textarea {
 	}
 
 		#logo h1 {
-			background: #ff4486;
-			color: #fff;
 			border-radius: 6px;
 			font-family: 'Oleo Script', serif;
 			font-weight: 400;
@@ -1957,6 +1955,11 @@ input, select, textarea {
 			font-size: 0.9em;
 			vertical-align: middle;
 			margin: 0 0 0 1.25em;
+		}
+
+		#logo img {
+			width: 4em;
+			height: auto;
 		}
 
 /* Nav */

@@ -37,6 +37,14 @@ public class User {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmpassword;
+    }
+
+    public void setConfirmPassword(String confirmpassword) {
+        this.confirmpassword = confirmpassword;
+    }
+
     public String getRole() {
         return role;
     }
@@ -51,5 +59,6 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String confirmpassword;
     private String role;
 }

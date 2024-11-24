@@ -19,8 +19,7 @@
 
             <!-- Logo -->
             <div id="logo">
-                <h1><a th:href="@{/}">Verti</a></h1>
-                <span>by HTML5 UP</span>
+                <h1><a th:href="@{/}"><img src="/images/hatoslotto.png"></a></h1>
             </div>
 
             <!-- Nav -->
@@ -29,7 +28,7 @@
                     <li class="current"><a th:href="@{/}">Welcome</a></li>
                     <li><a th:href="@{/contact}">Kapcsolat</a></li>
                     <li><a th:href="@{/messages}">Üzenetek</a></li>
-                    <li><a th:href="@{/lotto-query}">Lekérdezés</a></li>
+                    <li sec:authorize="hasAuthority('admin')"><a th:href="@{/lotto-query}">Lekérdezés</a></li>
                     <li sec:authorize="isAnonymous()" ><a th:href="@{/login}">Bejelentkezés</a></li>
                     <li sec:authorize="isAuthenticated()"> <p>Üdv,<span sec:authentication="principal.username">User</span></p> </li>
                     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Kijelentkezés</a></li>
