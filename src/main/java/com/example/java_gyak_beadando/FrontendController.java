@@ -78,7 +78,4 @@ public class FrontendController {
         model.addAttribute("messages", messages);
         return "messages";
     }
-
-
-
 }

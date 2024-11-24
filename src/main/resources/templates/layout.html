@@ -25,7 +25,7 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li class="current"><a th:href="@{/}">Welcome</a></li>
+                    <li class="current"><a th:href="@{/}">Főoldal</a></li>
                     <li><a th:href="@{/contact}">Kapcsolat</a></li>
                     <li><a th:href="@{/messages}">Üzenetek</a></li>
                     <li sec:authorize="hasAuthority('admin')"><a th:href="@{/lotto-query}">Lekérdezés</a></li>
@@ -50,30 +50,28 @@
                 <div class="col-3 col-6-medium col-12-small">
                     <!-- Links -->
                     <section class="widget links">
-                        <h3>Random Stuff</h3>
+                        <h3>Hasznos linkek</h3>
                         <ul class="style2">
-                            <li><a href="#">Etiam feugiat condimentum</a></li>
-                            <li><a href="#">Aliquam imperdiet suscipit odio</a></li>
-                            <li><a href="#">Sed porttitor cras in erat nec</a></li>
-                            <li><a href="#">Felis varius pellentesque potenti</a></li>
-                            <li><a href="#">Nullam scelerisque blandit leo</a></li>
+                            <li><a href="kutyautes.hu">Hatoslottó weboldal (web2 beadandó)</a></li>
+                            <li><a href="szaboferenc.kutyautes.hu">Második verzió</a></li>
+                            <li><a href="nagyerik.kutyutes.hu">Harmadik verzió</a></li>
                         </ul>
                     </section>
                 </div>
                 <div class="col-3 col-6-medium col-12-small">
                     <!-- Contact -->
                     <section class="widget contact last">
-                        <h3>Contact Us</h3>
-                        <ul>
-                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                            <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-                            <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+                        <h3>Kövessen minket</h3>
+                        <ul class="icons">
+                            <li><a href="https://x.com/sz_zrt" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="https://www.facebook.com/szerencsejatek.zrt" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                            <li><a href="https://www.instagram.com/szerencsejatekzrt/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="https://www.youtube.com/SzerencsejatekZrtHU" class="icon brands fa-youtube"><span class="label">Youtubet</span></a></li>
+                            <li><a href="https://hu.linkedin.com/company/szerencsej-t-k-zrt." class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a></li>
                         </ul>
-                        <p>1234 Fictional Road<br />
-                            Nashville, TN 00000<br />
-                            (800) 555-0000</p>
+                        <p>Fehér út 10.<br />
+                            Budapest, 1106<br />
+                            06 1 443 9102</p>
                     </section>
                 </div>
             </div>
