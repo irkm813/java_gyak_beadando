@@ -1,7 +1,7 @@
 package com.example.java_gyak_beadando.Messages;
 
-import com.example.java_gyak_beadando.login.User;
-import com.example.java_gyak_beadando.login.UserRepository;
+import com.example.java_gyak_beadando.Login.User;
+import com.example.java_gyak_beadando.Login.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class MessageService {
         return messageRepository.findAllByOrderByCreatedAtDesc(PageRequest.of(0, 10))
                 .stream()
                 .map(message -> new MessageDto(
-                        message.getUserId() != null ? userRepo.findByEmail(message.getEmail()).get().getUsername() : "Vendég",
+                        message.getUserId() != null ? userRepo.findById(message.getUserId()).get().getUsername() : "Vendég",
                         message.getMessage(),
                         message.getCreatedAt()
                 ))

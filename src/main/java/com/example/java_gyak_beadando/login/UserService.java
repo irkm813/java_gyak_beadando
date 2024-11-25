@@ -1,4 +1,4 @@
-package com.example.java_gyak_beadando.login;
+package com.example.java_gyak_beadando.Login;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,8 +16,8 @@ public class UserService {
     }
 
     public void registerUser(String email,String username,String password, String confirmPassword) {
-        if (userRepository.findByEmail(email).isPresent()) {
-            throw new IllegalArgumentException("A felhasználó már létezik");
+        if (userRepository.findByUsername(username).isPresent()) {
+            throw new IllegalArgumentException("A felhasználónév már létezik");
         }
 
         if (!password.equals(confirmPassword)) {

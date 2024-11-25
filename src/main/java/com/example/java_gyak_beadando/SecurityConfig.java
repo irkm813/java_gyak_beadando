@@ -1,6 +1,6 @@
 package com.example.java_gyak_beadando;
 
-import com.example.java_gyak_beadando.login.UserService;
+import com.example.java_gyak_beadando.Login.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

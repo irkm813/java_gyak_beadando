@@ -1,10 +1,30 @@
-package com.example.java_gyak_beadando.login;
+package com.example.java_gyak_beadando.Login;
+
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, unique = true)
+    private String username; // Ez az egyedi felhasználónév
+
+    @Column(nullable = false, unique = true)
+    private String email; // Egyedi e-mail cím, ha valaha kell
+
+    @Column(nullable = false)
+    private String password; // Jelszó
+
+    @Transient
+    private String confirmpassword; // Jelszó megerősítés, nem kerül adatbázisba
+
+    private String role; // Felhasználói szerep
+
+    // Getterek és setterek
     public Integer getId() {
         return id;
     }
@@ -52,14 +72,4 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String username;
-    private String email;
-    private String password;
-    @Transient
-    private String confirmpassword;
-    private String role;
 }

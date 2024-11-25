@@ -1,0 +1,20 @@
+/* Gombcsoport stílusa */
+#login-form .button-group {
+    width: auto;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Beküldő gomb stílusa */
+#login-form #submit-button {
+    display: block;
+    width: auto;
+}
+
+/* Beviteli mezők stílusa */
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    border: 2px solid #ccc; /* 2px szürke keret */
+    border-radius: 5px; /* Lekerekített sarkok */
+    width: 100%; /* Teljes szélesség */
+}

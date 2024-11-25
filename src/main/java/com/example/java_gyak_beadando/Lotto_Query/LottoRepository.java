@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LottoRepository extends JpaRepository<LottoEntity, Long> {
+public interface LottoRepository extends JpaRepository<LottoEntity, Integer> {
 
     @Query("SELECT DISTINCT h.ev FROM LottoEntity h")
     List<Integer> findDistinctYears();
