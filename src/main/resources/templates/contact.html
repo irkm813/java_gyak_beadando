@@ -24,15 +24,16 @@
         </div>
 
         <form id="contact-form" method="post" th:action="@{/contact/submit}">
-          <div sec:authorize="isAnonymous()"  class="form-group">
+          <div sec:authorize="isAnonymous()" class="form-group">
             <label for="email">Email cím:</label>
-            <input type="email" id="email" name="email" class="form-control" maxlength="255"  required />
+            <input type="email" id="email" name="email" class="form-control" maxlength="255" required />
             <input type="hidden" id="isRegistered" name="isRegistered" value=false />
           </div>
 
           <div class="form-group">
             <label for="message">Üzenet:</label>
             <textarea id="message" name="message" class="form-control" rows="5" maxlength="1000" required></textarea>
+            <p id="remaining-chars">Hátralévő karakterek: 1000</p>
           </div>
           <div class="form-group button-group">
             <button type="submit" id="submit-button">Küldés</button>
