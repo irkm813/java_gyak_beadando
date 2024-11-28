@@ -42,12 +42,16 @@ public class LottoService {
             }
 
             NyeremenyDto nyeremeny = new NyeremenyDto();
-            nyeremeny.setTalalat((Integer) result[3]);
-            nyeremeny.setDarab((Integer) result[4]);
-            nyeremeny.setErtek((Integer) result[5]);
+
+            // Null ellenőrzés
+            nyeremeny.setTalalat(result[3] != null ? (Integer) result[3] : 0);
+            nyeremeny.setDarab(result[4] != null ? (Integer) result[4] : 0);
+            nyeremeny.setErtek(result[5] != null ? (Integer) result[5] : 0);
+
             dto.getNyeremenyek().add(nyeremeny);
         }
 
         return dtos;
     }
+
 }

@@ -67,30 +67,43 @@ function fetchLottoResults(year, week) {
 
                     // Nyeremények feldolgozása
                     if (result.nyeremenyek && result.nyeremenyek.length > 0) {
-                        const prizeHeader = document.createElement("h4");
-                        prizeHeader.textContent = "Nyeremények:";
-                        resultsDiv.appendChild(prizeHeader);
+                        // Ellenőrizzük, hogy van-e legalább egy érvényes nyeremény adat
+                        const validPrizes = result.nyeremenyek.filter(nyeremeny =>
+                            nyeremeny.talalat !== 0 ||
+                            nyeremeny.darab !== 0 ||
+                            nyeremeny.ertek !== 0
+                        );
 
-                        result.nyeremenyek.forEach(nyeremeny => {
-                            const prizeDiv = document.createElement("div");
+                        if (validPrizes.length > 0) {
+                            const prizeHeader = document.createElement("h4");
+                            prizeHeader.textContent = "Nyeremények:";
+                            resultsDiv.appendChild(prizeHeader);
 
-                            // Találatok formázása (7 -> 5+1)
-                            let talalat = nyeremeny.talalat;
-                            if (talalat === 7) {
-                                talalat = "5+1";
-                            }
+                            validPrizes.forEach(nyeremeny => {
+                                const prizeDiv = document.createElement("div");
 
-                            // Formázott értékek (3 számjegyenként ponttal)
-                            const darab = nyeremeny.darab ? nyeremeny.darab.toLocaleString('hu-HU') : 0;
-                            const ertek = nyeremeny.ertek ? nyeremeny.ertek.toLocaleString('hu-HU') : 0;
+                                // Találatok formázása (7 -> 5+1)
+                                let talalat = nyeremeny.talalat;
+                                if (talalat === 7) {
+                                    talalat = "5+1";
+                                }
 
-                            prizeDiv.innerHTML = `
-                                <p><strong>${talalat} találat:</strong></p>
-                                <p>Darab: ${darab}</p>
-                                <p>Érték: ${ertek} HUF</p>
-                            `;
-                            resultsDiv.appendChild(prizeDiv);
-                        });
+                                // Formázott értékek (3 számjegyenként ponttal)
+                                const darab = nyeremeny.darab ? nyeremeny.darab.toLocaleString('hu-HU') : 0;
+                                const ertek = nyeremeny.ertek ? nyeremeny.ertek.toLocaleString('hu-HU') : 0;
+
+                                prizeDiv.innerHTML = `
+                                    <p><strong>${talalat} találat:</strong></p>
+                                    <p>Darab: ${darab}</p>
+                                    <p>Érték: ${ertek} HUF</p>
+                                `;
+                                resultsDiv.appendChild(prizeDiv);
+                            });
+                        } else {
+                            const noPrize = document.createElement("p");
+                            noPrize.textContent = "Nincs nyeremény adat.";
+                            resultsDiv.appendChild(noPrize);
+                        }
                     } else {
                         const noPrize = document.createElement("p");
                         noPrize.textContent = "Nincs nyeremény adat.";
