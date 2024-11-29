@@ -46,7 +46,10 @@ public class SecurityConfig {
                                                 "/contact/submit",
                                                 "/contact/submit/*",
                                                 "/messages",
-                                                "/api/**")
+                                                "/api/*",
+                                                "/api/huzas/results",
+                                                "/api/huzas/weeks",
+                                                "/api/huzas/years")
                                         .permitAll()
                                         // Protect the other routes
                                         .requestMatchers("/","/lotto-query", "/lotto-query/*").authenticated()
